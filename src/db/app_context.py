@@ -46,6 +46,11 @@ def export_context() -> dict:
     print(f"[DEBUG] [{PRINT_PREFIX}] Exported app_context.json data")
     return context_data
 
+def set_app_data(key: str, value: any) -> None:
+    """Set a general application data entry in context_data."""
+    context_data["app_data"][key] = value
+    _save_context()
+
 def get_app_data(key: str, default: any = None) -> any:
     """Retrieve a general application data entry from context_data."""
     return context_data["app_data"].get(key, default)

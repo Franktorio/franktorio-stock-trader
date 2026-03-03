@@ -7,6 +7,14 @@ import datetime
 import src.logging as logging # type: ignore
 logging.initialize_logging()
 
+from src.db.connections import init_databases
+from src.db.backups import init_backup_manager
+from src.db.app_context import create_app_context
+
+create_app_context()    # Create app_context.json
+init_databases()        # Initialize databases at startup
+init_backup_manager()   # Start backup manager at startup
+
 PRINT_PREFIX = "MAIN"
 
 from config.config import DISCORD_BOT_TOKEN, DISCORD_HOME_GUILD_ID

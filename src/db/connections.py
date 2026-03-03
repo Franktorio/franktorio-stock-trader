@@ -64,11 +64,11 @@ def init_databases() -> None:
     Initialize all database files and tables.
     This should be called once at startup.
     """
-    # import src.db.grader_db as grader_db
+    import src.db.bot_db as bot_db
 
     os.makedirs(DB_DIR, exist_ok=True)
 
-    # register_database(grader_db.DB_FILE_NAME, grader_db.schema)
+    register_database(bot_db.DB_FILE_NAME, bot_db.schema)
     
     # Initialize all registered databases
     for db_file_name, schema_module in DATABASES.items():

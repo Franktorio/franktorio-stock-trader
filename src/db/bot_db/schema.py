@@ -44,11 +44,12 @@ SCHEMA = {
     );
     """,
 
+    # Table to store the performance metrics of different sectors (e.g. tech, energy, etc.) for better analysis and decision-making
     "sector_performance": """
     CREATE TABLE IF NOT EXISTS sector_performance (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         category TEXT NOT NULL,
-        slope_at REAL NOT NULL,
+        current_slope REAL NOT NULL,
         volatility REAL NOT NULL,
         is_strongest INTEGER NOT NULL,
         timestamp INTEGER DEFAULT (strftime('%s', 'now'))
